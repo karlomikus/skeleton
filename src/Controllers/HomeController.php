@@ -7,4 +7,11 @@ class HomeController extends Controller
     {
         return $this->json(['Hello world']);
     }
+
+    public function users()
+    {
+        $users = $this->app['repository.user']->findAll();
+
+        return $this->json((array) $users);
+    }
 }
