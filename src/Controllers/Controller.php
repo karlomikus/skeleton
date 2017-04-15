@@ -13,8 +13,8 @@ class Controller
         $this->app = $app;
     }
 
-    public function json($data)
+    public function json($data, $status = 200)
     {
-        return (new Response())->withJson($data);
+        return (new Response($status))->withJson($data);
     }
 }
