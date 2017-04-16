@@ -6,7 +6,7 @@ use Psr\Container\ContainerInterface;
 
 class RepositoryServiceProvider implements ServiceProvider
 {
-    public function getServices()
+    public function getServices(): array
     {
         return [
             'repository.user' => function (ContainerInterface $container) {

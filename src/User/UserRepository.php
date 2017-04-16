@@ -2,6 +2,7 @@
 namespace App\User;
 
 use PDO;
+use App\User\User;
 
 class UserRepository
 {
@@ -10,7 +11,7 @@ class UserRepository
         $this->conn = $conn;
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         $stmt = $this->conn->prepare('SELECT * FROM user LIMIT 10');
         $stmt->execute();
@@ -19,7 +20,7 @@ class UserRepository
         return $stmt->fetchAll();
     }
 
-    public function findById($id)
+    public function findById(int $id): User
     {
         $stmt = $this->conn->prepare('SELECT * FROM user WHERE id = :id');
         $stmt->bindParam(':id', $id);

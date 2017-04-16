@@ -16,5 +16,5 @@ interface ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices();
+    public function getServices(): array;
 }
