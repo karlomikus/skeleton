@@ -11,4 +11,6 @@ $app = new App\Application($config);
 
 $app->registerServices();
 
+$app->add(new App\Middlewares\ResumeAuthentication($app->getContainer()));
+
 return $app;

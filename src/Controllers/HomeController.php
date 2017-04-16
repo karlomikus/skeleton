@@ -5,19 +5,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $this->getSession()->set('key', 'Session value');
-
-        return $this->json(['Hello world']);
-    }
-
-    public function users()
-    {
         $users = $this->app['repository.user']->findAll();
 
         return $this->json($users);
     }
 
-    public function user($request, $response, $arg)
+    public function show($request, $response, $arg)
     {
         $userId = $arg['id'];
         $user = $this->app['repository.user']->findById($userId);

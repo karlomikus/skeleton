@@ -2,7 +2,9 @@
 namespace App\Controllers;
 
 use Slim\Http\Response;
+use Aura\Session\Segment;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class Controller
 {
@@ -13,13 +15,22 @@ class Controller
         $this->app = $app;
     }
 
-    public function json($data, $status = 200)
+    public function json(array $data, int $status = 200): ResponseInterface
     {
         return (new Response($status))->withJson($data);
     }
 
-    public function getSession($segment = 'default')
+    public function getSession(string $segment = 'default'): Segment
     {
         return $this->app['session']->getSegment($segment);
+    }
+
+    public function getUser(): ?array
+    {
+        if ($this->app['auth']->isValid()) {
+            return $this->app['auth']->getUserData();
+        }
+
+        return null;
     }
 }

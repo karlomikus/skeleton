@@ -2,6 +2,7 @@
 namespace App;
 
 use Slim\App;
+use App\Providers\AuthServiceProvider;
 use App\Providers\SessionServiceProvider;
 use App\Providers\DatabaseServiceProvider;
 use App\Providers\RepositoryServiceProvider;
@@ -20,6 +21,7 @@ class Application extends App
         SessionServiceProvider::class,
         DatabaseServiceProvider::class,
         RepositoryServiceProvider::class,
+        AuthServiceProvider::class,
     ];
 
     /**
