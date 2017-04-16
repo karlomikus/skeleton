@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\User\User;
 use Slim\Http\Response;
 use Aura\Session\Segment;
 use Psr\Container\ContainerInterface;
@@ -25,10 +26,10 @@ class Controller
         return $this->app['session']->getSegment($segment);
     }
 
-    public function getUser(): ?array
+    public function getUser(): ?User
     {
         if ($this->app['auth']->isValid()) {
-            return $this->app['auth']->getUserData();
+            return new User($this->app['auth']->getUserData());
         }
 
         return null;

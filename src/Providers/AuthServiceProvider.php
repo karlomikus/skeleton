@@ -20,7 +20,7 @@ class AuthServiceProvider implements ServiceProvider
 
             'auth_pdo_adapter' => function (ContainerInterface $container) {
                 $verifier = new PasswordVerifier(PASSWORD_BCRYPT);
-                $cols = ['user.email', 'user.password', 'user.name AS name', 'user.last_name AS lastName'];
+                $cols = ['user.email', 'user.password', 'user.name', 'user.last_name', 'id'];
                 $table = 'user';
 
                 $pdoAdapter = $container['auth_factory']->newPdoAdapter(

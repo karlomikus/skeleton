@@ -2,15 +2,17 @@
 namespace App\Controllers;
 
 use Exception;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class AuthController extends Controller
 {
-    public function status()
+    public function status(): ResponseInterface
     {
         return $this->json(['status' => $this->app['auth']->getStatus()]);
     }
 
-    public function login($request)
+    public function login(RequestInterface $request): ResponseInterface
     {
         $email = $request->getQueryParams()['email'];
         $pass = $request->getQueryParams()['pass'];
@@ -27,7 +29,7 @@ class AuthController extends Controller
         return $this->json(['status' => $this->app['auth']->getStatus()]);
     }
 
-    public function logout()
+    public function logout(): ResponseInterface
     {
         $this->app['logout_service']->logout($this->app['auth']);
 
