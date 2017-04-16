@@ -2,6 +2,7 @@
 namespace App;
 
 use Slim\App;
+use App\Providers\SessionServiceProvider;
 use App\Providers\DatabaseServiceProvider;
 use App\Providers\RepositoryServiceProvider;
 
@@ -16,6 +17,7 @@ class Application extends App
      * @var array
      */
     private $providers = [
+        SessionServiceProvider::class,
         DatabaseServiceProvider::class,
         RepositoryServiceProvider::class,
     ];

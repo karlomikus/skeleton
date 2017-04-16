@@ -5,6 +5,8 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $this->getSession()->set('key', 'Session value');
+
         return $this->json(['Hello world']);
     }
 

@@ -17,4 +17,9 @@ class Controller
     {
         return (new Response($status))->withJson($data);
     }
+
+    public function getSession($segment = 'default')
+    {
+        return $this->app['session']->getSegment($segment);
+    }
 }

@@ -2,7 +2,8 @@
     "require": {
         "slim/slim": "^3.0",
         "symfony/var-dumper": "^3.2",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "aura/session": "^2.1"
     },
     "autoload": {
         "psr-4": {
