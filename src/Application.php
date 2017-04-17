@@ -1,11 +1,9 @@
 <?php
+declare(strict_types = 1);
 namespace App;
 
 use Slim\App;
-use App\Providers\AuthServiceProvider;
-use App\Providers\SessionServiceProvider;
-use App\Providers\DatabaseServiceProvider;
-use App\Providers\RepositoryServiceProvider;
+use App\Providers\{AuthServiceProvider, SessionServiceProvider, DatabaseServiceProvider, RepositoryServiceProvider};
 
 /**
  * Application
